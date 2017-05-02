@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="yogesh.firzen.weatherreport.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:weightSum="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/loc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:hint="Enter a Location"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLines="1" />
+
+        <Button
+            android:id="@+id/find"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:text="Find" />
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/datas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/loca"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loca"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/pic"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/loca" />
+
+                    <TextView
+                        android:id="@+id/curtemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:text="31"
+                        android:textSize="21sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/pic" />
+
+                    <TextView
+                        android:id="@+id/mintemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="min"
+                        android:textSize="15sp"
+                        app:layout_constraintLeft_toLeftOf="@+id/curtemp"
+                        app:layout_constraintStart_toStartOf="@id/curtemp"
+                        app:layout_constraintTop_toBottomOf="@+id/curtemp" />
+
+
+                    <TextView
+                        android:id="@+id/maxtemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="max"
+                        android:textSize="15sp"
+                        app:layout_constraintLeft_toLeftOf="@+id/curtemp"
+                        app:layout_constraintStart_toStartOf="@id/curtemp"
+                        app:layout_constraintTop_toBottomOf="@+id/mintemp" />
+
+                    <TextView
+                        android:id="@+id/desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:text="desc"
+                        android:textSize="20sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/pic" />
+
+                    <TextView
+                        android:id="@+id/wind"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="Wind"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/pic" />
+
+                    <TextView
+                        android:id="@+id/windspd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="speed"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@id/wind"
+                        app:layout_constraintRight_toRightOf="@+id/wind"
+                        app:layout_constraintTop_toBottomOf="@+id/wind" />
+
+                    <!--<TextView
+                        android:id="@+id/windeg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="deg"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@id/wind"
+                        app:layout_constraintStart_toStartOf="@id/wind"
+                        app:layout_constraintTop_toBottomOf="@id/windspd" />-->
+
+                    <TextView
+                        android:id="@+id/hum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="humi"
+                        app:layout_constraintLeft_toLeftOf="@+id/curtemp"
+                        app:layout_constraintStart_toStartOf="@id/curtemp"
+                        app:layout_constraintTop_toBottomOf="@+id/desc" />
+
+                    <TextView
+                        android:id="@+id/press"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="press"
+                        app:layout_constraintEnd_toEndOf="@id/wind"
+                        app:layout_constraintRight_toRightOf="@+id/wind"
+                        app:layout_constraintTop_toBottomOf="@+id/desc" />
+
+                    <!--<TextView
+                        android:id="@+id/srise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="sunrise"
+                        app:layout_constraintLeft_toLeftOf="@+id/curtemp"
+                        app:layout_constraintStart_toStartOf="@id/curtemp"
+                        app:layout_constraintTop_toBottomOf="@+id/hum" />
+
+                    <TextView
+                        android:id="@+id/sset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="sunset"
+                        app:layout_constraintEnd_toEndOf="@id/wind"
+                        app:layout_constraintRight_toRightOf="@+id/wind"
+                        app:layout_constraintTop_toBottomOf="@+id/press" />-->
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/wait"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Please wait while the weather is loaded"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </android.support.constraint.ConstraintLayout>
+            </LinearLayout>
+
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</android.support.constraint.ConstraintLayout>
